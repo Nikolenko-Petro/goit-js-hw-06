@@ -20,3 +20,4 @@ const lastLiTitle = lastLi.querySelector("h2");
 console.log(`Category: ${lastLiTitle.textContent}`);
 
 console.log(`Elements: ${lastLi.querySelectorAll("li").length}`);
+console.log();
