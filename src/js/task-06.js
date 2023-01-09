@@ -1,9 +1,17 @@
-const input = document.querySelector("#validation-input");
+const textInput = document.querySelector("#validation-input");
 
-input.addEventListener("input", onInputChange);
+console.log(textInput.getAttribute("data-length"));
 
-function onInputChange(event) {
-  event.currentTarget.value.length === 6
-    ? (input.style.borderColor = "#4caf50")
-    : (input.style.borderColor = "#f44336");
-}
+textInput.addEventListener("blur", (event) => {
+  if (event.target.value.length == textInput.getAttribute("data-length")) {
+    textInput.classList.add("valid");
+    if (textInput.classList.contains("invalid")) {
+      textInput.classList.remove("invalid");
+    }
+  } else {
+    if (textInput.classList.contains("valid")) {
+      textInput.classList.remove("valid");
+    }
+    textInput.classList.add("invalid");
+  }
+});
